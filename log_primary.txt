@@ -1,0 +1,73 @@
+buntu@ip-10-1-11-112:~$ mysql -u admin -h database-primary.cqoyhsdfj0pd.us-east-1.rds.amazonaws.com -D udacity -P 3306
+ERROR 1045 (28000): Access denied for user 'admin'@'10.1.11.112' (using password: NO)
+ubuntu@ip-10-1-11-112:~$ mysql -u admin -h database-primary.cqoyhsdfj0pd.us-east-1.rds.amazonaws.com -D udacity -P 3306 -p'12345678'
+mysql: [Warning] Using a password on the command line interface can be insecure.
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 31
+Server version: 8.0.32 Source distribution
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+sudo apt install mysql-server
+
+
+mysql> CREATE TABLE users (id int, first_name varchar(50), address varchar(100), age int, last_name varchar(50));
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> SELECT * FROM users;
+Empty set (0.00 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
+| udacity            |
++--------------------+
+5 rows in set (0.00 sec)
+
+mysql> use udacity
+Database changed
+
+mysql> show tables;
++-------------------+
+| Tables_in_udacity |
++-------------------+
+| users             |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT * FROM users;
+Empty set (0.00 sec)
+
+mysql> INSERT INTO udacity.users (id, first_name, address, age, last_name) VALUES (1, 'Bob', 'Kansas City', 20, 'Smith');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> INSERT INTO udacity.users (id, first_name, address, age, last_name) VALUES (2, 'John', 'New York City', 22, 'Ravindra');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO udacity.users (id, first_name, address, age, last_name) VALUES (3, 'Jason', 'Ohio City', 24, 'Murray');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> INSERT INTO udacity.users (id, first_name, address, age, last_name) VALUES (4, 'Keith', 'Virginia City', 28, 'Oven');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SELECT * FROM udacity.users;
++------+------------+---------------+------+-----------+
+| id   | first_name | address       | age  | last_name |
++------+------------+---------------+------+-----------+
+|    1 | Bob        | Kansas City   |   20 | Smith     |
+|    2 | John       | New York City |   22 | Ravindra  |
+|    3 | Jason      | Ohio City     |   24 | Murray    |
+|    4 | Keith      | Virginia City |   28 | Oven      |
++------+------------+---------------+------+-----------+
+4 rows in set (0.00 sec)

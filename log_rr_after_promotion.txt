@@ -1,0 +1,21 @@
+mysql> INSERT INTO udacity.users (id, first_name, address, age, last_name) VALUES (5, 'McCain', 'Virginia City', 40, 'Even');
+ERROR 2013 (HY000): Lost connection to MySQL server during query
+No connection. Trying to reconnect...
+Connection id:    9
+Current database: udacity
+
+Query OK, 1 row affected (0.05 sec)
+
+mysql> SELECT * FROM users;
++------+------------+---------------+------+-----------+
+| id   | first_name | address       | age  | last_name |
++------+------------+---------------+------+-----------+
+|    1 | Bob        | Kansas City   |   20 | Smith     |
+|    2 | John       | New York City |   22 | Ravindra  |
+|    3 | Jason      | Ohio City     |   24 | Murray    |
+|    4 | Keith      | Virginia City |   28 | Oven      |
+|    5 | McCain     | Virginia City |   40 | Even      |
++------+------------+---------------+------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> 
